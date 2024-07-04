@@ -1,0 +1,138 @@
+<div class="container mt-4 d-flex justify-content-center">
+  <div class="card shadow-sm" style="max-width: 400px">
+    <!-- Cabecera del Card -->
+    <div class="card-header text-center">
+      <h2>Solicitud información usuario IT Health</h2>
+    </div>
+
+    <!-- Cuerpo del card -->
+    <div class="card-body">
+      <!-- Inicio del formulario -->
+      <form
+        [formGroup]="userForm"
+        (ngSubmit)="onSubmit()"
+        class="needs-validation"
+        novalidate
+      >
+        <!-- Campo Nombre -->
+        <div class="form-group mb-3">
+          <label for="name" class="form-label">Nombre:</label>
+          <input
+            id="name"
+            formControlName="name"
+            class="form-control form-control-sm"
+            [ngClass]="{
+              'is-invalid':
+                userForm.get('name')?.invalid && userForm.get('name')?.touched
+            }"
+          />
+          <div
+            *ngIf="
+              userForm.get('name')?.invalid && userForm.get('name')?.touched
+            "
+            class="invalid-feedback"
+          >
+            El nombre es obligatorio.
+          </div>
+        </div>
+
+        <!-- campo Correo Electrónico -->
+        <div class="form-group mb-3">
+          <label for="email" class="form-label">Correo electrónico:</label>
+          <input
+            id="email"
+            formControlName="email"
+            class="form-control form-control-sm"
+            [ngClass]="{
+              'is-invalid':
+                userForm.get('email')?.invalid && userForm.get('email')?.touched
+            }"
+          />
+          <div
+            *ngIf="
+              userForm.get('email')?.invalid && userForm.get('email')?.touched
+            "
+            class="invalid-feedback"
+          >
+            <div *ngIf="userForm.get('email')?.errors?.['required']">
+              El correo electrónico es obligatorio.
+            </div>
+            <div *ngIf="userForm.get('email')?.errors?.['email']">
+              El formato del correo electrónico no es válido.
+            </div>
+          </div>
+        </div>
+
+        <!-- Campo Número Telefono -->
+        <div class="form-group mb-3">
+          <label for="phone" class="form-label">Número de teléfono:</label>
+          <input
+            id="phone"
+            type="tel"
+            formControlName="phone"
+            class="form-control form-control-sm"
+            [ngClass]="{
+              'is-invalid':
+                userForm.get('phone')?.invalid && userForm.get('phone')?.touched
+            }"
+          />
+          <div
+            *ngIf="
+              userForm.get('phone')?.invalid && userForm.get('phone')?.touched
+            "
+            class="invalid-feedback"
+          >
+            <div *ngIf="userForm.get('phone')?.errors?.['required']">
+              El número de teléfono es obligatorio.
+            </div>
+            <div
+              *ngIf="userForm.get('phone')?.errors?.['pattern'] && !userForm.get('phone')?.errors?.['required']"
+            >
+              El número de teléfono solo puede contener números.
+            </div>
+            <div
+              *ngIf="userForm.get('phone')?.errors?.['minlength'] && !userForm.get('phone')?.errors?.['required'] && !userForm.get('phone')?.errors?.['pattern']"
+            >
+              El número de teléfono debe tener al menos 10 caracteres.
+            </div>
+          </div>
+        </div>
+
+        <!-- Campo Dirección -->
+        <div class="form-group mb-3">
+          <label for="address" class="form-label">Dirección:</label>
+          <input
+            id="address"
+            formControlName="address"
+            class="form-control form-control-sm"
+            [ngClass]="{
+              'is-invalid':
+                userForm.get('address')?.invalid &&
+                userForm.get('address')?.touched
+            }"
+          />
+          <div
+            *ngIf="
+              userForm.get('address')?.invalid &&
+              userForm.get('address')?.touched
+            "
+            class="invalid-feedback"
+          >
+            La dirección es obligatoria.
+          </div>
+        </div>
+
+        <!-- Botón para enviar datos-->
+        <div class="d-flex justify-content-end">
+          <button
+            type="submit"
+            class="btn btn-outline-info"
+            [disabled]="userForm.invalid"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
