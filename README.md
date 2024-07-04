@@ -13,4 +13,4 @@ Ejecute `ng s` para un servidor de desarrollo. Navegue hasta `http://localhost:4
 ## Funcionalidades Adicionales:
 
 * Incluye un formulario para solicitar datos básicos de usuario.
-* La consola muestra datos de la API consumida, la cual puede abrir por medio de la tecla F12 ó el comando Ctr+Shift+i.
+* La consola del navegador muestra datos de la API consumida, la cual puede abrir por medio de la tecla F12 ó el comando Ctr+Shift+i.
