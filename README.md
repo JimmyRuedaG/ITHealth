@@ -8,7 +8,7 @@ Este proyecto se generó con [Angular CLI](https://github.com/angular/angular-cl
 * Integración de Bootstrap para estilos responsivos.
 ## Servidor de desarrollo
 
-Ejecute `ng s ` para un servidor de desarrollo. Navegue hasta `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos fuente.
+Ejecute `ng s` para un servidor de desarrollo. Navegue hasta `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos fuente.
 
 ## Funcionalidades Adicionales:
 
